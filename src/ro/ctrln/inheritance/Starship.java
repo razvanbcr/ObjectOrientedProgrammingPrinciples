@@ -1,13 +1,15 @@
 package ro.ctrln.inheritance;
 
 import java.util.Random;
-
+// interfetele sunt tot clase abstracte
 public interface Starship {
 
 
     int FIRST_INT = 1;
     static int SECOND_INT = 2;
     static final int THIRD_INT = 1;
+
+    // acestea sunt tot metode abstracte
     void warp();
 
     void setStarshipDestination(String destination);

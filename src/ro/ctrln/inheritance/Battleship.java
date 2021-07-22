@@ -2,9 +2,10 @@ package ro.ctrln.inheritance;
 
 import java.util.Objects;
 
+
 public class Battleship {
 
-    private String battleshipName;
+    protected String battleshipName;
     private int battleshipCapacity;
 
     public String getBattleshipName() {
@@ -12,6 +13,8 @@ public class Battleship {
     }
 
     public void setBattleshipName(String battleshipName) {
+        if(battleshipName.contains("bad"))
+            return;
         this.battleshipName = battleshipName;
     }
 
@@ -45,4 +48,7 @@ public class Battleship {
         return Objects.hash(battleshipName, battleshipCapacity);
     }
 
+    public void escapeProcedure(int escapePods) {
+        System.out.println("Escape procedure initiated in Battleship class with " + escapePods + " escape pods");
+    }
 }

@@ -36,10 +36,40 @@ public class FalconHeavy extends Battleship implements Starship, Rocket{
                 '}';
     }
 
-    @Override
+    @Override // adnotare marcam faptul ca aceasta metoda este suprascrisa
     public void launchCountdown() {
         for(int i =10; i>= 0; i--) {
             System.out.println("Launch sequence: " + i);
         }
+    }
+
+    // aceasta metoda este mostenita din clasa parinte Battleship si este suprascrisa
+    @Override
+    public void escapeProcedure(int escapePods) {
+        super.escapeProcedure(escapePods);
+        System.out.println("We are in FalconHeavy now! Battleship name is: " + this.battleshipName);
+        System.out.println("Escape procedure initiated in FalconHeavy class " + escapePods + " escape pods");
+    }
+
+    public String escapeProcedure(boolean activated) {
+        return activated ? "Escape procedure initiated!" : "Escape procedure abort!";
+    }
+
+    public void escapeProcedure(int escapePods, boolean activated) {
+        System.out.println(escapeProcedure(activated));
+        if(activated) {
+            escapeProcedure(escapePods);
+        }
+    }
+
+    //varargs - variable arguments - transmitem un numar variabil de parametri catre metoda noastra
+    public void escapeProcedure(boolean... activated) {
+        for(boolean active : activated) {
+            System.out.println("Activation sequence: " + active);
+        }
+    }
+
+    public void escapeProcedure() {
+        System.out.println("Waiting for the escape procedure!");
     }
 }
